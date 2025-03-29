@@ -1,16 +1,16 @@
-# Program #1: Item Counter
-# Assume a file containing a series of names (as strings) is named names.txt 
-# (Use the included example file names.txt) and exists on the computer's disk.
-# Write a program that displays the number of names that are stored in the file.
+#Ray McMillin, 3/28/25, Names.TXT Code
 
 def count_file_lines():
-    ######################
-    # Add your code here #
-    ######################
-    print('In the count_file_lines function')
+    try:
+        with open('names.txt', 'r') as file:
+            lines = file.readlines()
 
+        num_names = len(lines)
 
+        print(f"Number of names in the file: {num_names}")
 
-# You don't need to change anything below this line:
+    except FileNotFoundError:
+        print("The file 'names.txt' was not found.")
+
 if __name__ == '__main__':
     count_file_lines()
